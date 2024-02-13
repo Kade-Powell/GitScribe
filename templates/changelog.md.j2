@@ -1,18 +1,27 @@
 # {{ version }} - {{ date }}
 
-
 {% for (version, change_array) in changes -%}
 ## {{ version }}
 ### Added
 {% for change in change_array -%}
 {% if change.change_type.to_string() == "Feature" %}
-- {{ change.message }}
+- {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
+{% match change.link %}
+  {% when Some with (link) %}
+    - [Link]({{ link }})
+  {% when None %}
+{% endmatch %}
 {% endif %}
-{% endfor %}
+{%- endfor %}
 ### Bug Fixes
 {% for change in change_array -%}
 {% if change.change_type.to_string() == "Fix" %}
-- {{ change.message }}
+- {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
+{% match change.link %}
+  {% when Some with (link) %}
+    - [Link]({{ link }})
+  {% when None %}
+{% endmatch %}
 {% endif %}
 {%- endfor %}
-{% endfor %}
+{%- endfor %}

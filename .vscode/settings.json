@@ -5,6 +5,7 @@
         "endfor",
         "gitmoji",
         "gitscribe",
+        "indexmap",
         "pyproject",
         "rustup"
     ],

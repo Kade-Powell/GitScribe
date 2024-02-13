@@ -202,11 +202,10 @@ pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<C
         .filter(|change| change.change_type != ChangeType::Version)
         .collect();
 
-
     // loop through changes, sort by change date. we want to associate change date for the version change
     let mut change_map: IndexMap<String, Vec<Change>> = IndexMap::new();
     //insert version change as the key, it is sorted above by date so we want to keep the order
-    for version_change in &version_changes{
+    for version_change in &version_changes {
         change_map.insert(
             parse_change_for_version(&version_change.message),
             Vec::new(),
@@ -221,7 +220,7 @@ pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<C
 
         let version = parse_change_for_version(&release_change.unwrap().message);
         match release_change {
-            Some(version_change) => {
+            Some(_) => {
                 if change_map.contains_key(&version) {
                     change_map.get_mut(&version).unwrap().push(change.clone());
                 } else {
@@ -235,10 +234,9 @@ pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<C
     change_map
 }
 
-
-fn parse_change_for_version(message: &String) -> String{
+fn parse_change_for_version(message: &String) -> String {
     let version_regex = Regex::new(r"^.*(\d+\.\d+\.\d+)$").unwrap();
-   version_regex
+    version_regex
         .captures(message)
         .unwrap()
         .get(1)
