@@ -1,8 +1,10 @@
 # Changelog - {{ date }}
-release: {{ version }}
 
+release: {{ version }}
 {% for (version, change_array) in changes -%}
+
 ## {{ version }}
+
 ### Added
 {% for change in change_array -%}
 {% if change.change_type.to_string() == "Feature" %}
