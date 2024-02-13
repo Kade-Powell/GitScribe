@@ -13,7 +13,13 @@ use serde::{Deserialize, Serialize};
 struct MarkdownChangelog {
     version: String,
     date: String,
-    changes: IndexMap<String, Vec<Change>>,
+    changes: IndexMap<String, ChangeTypeMap>,
+}
+
+#[derive(Clone, Debug)]
+pub struct ChangeTypeMap {
+    pub features: Vec<Change>,
+    pub fixes: Vec<Change>,
 }
 
 /// The template options

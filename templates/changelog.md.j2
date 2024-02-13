@@ -2,30 +2,28 @@
 
 release: {{ version }}
 
-{% for (version, change_array) in changes -%}
+{% for (version, change_type_map) in changes -%}
 ## {{ version }}
-
+{% if  change_type_map.features.len() > 0 %}
 ### Added in {{ version }}
-{% for change in change_array -%}
-{% if change.change_type.to_string() == "Feature" %}
+{% for change in change_type_map.features -%}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
 {% match change.link -%}
   {% when Some with (link) %}
   - [Link]({{ link }})
   {% when None %}
 {%- endmatch %}
-{% endif %}
 {%- endfor %}
+{%- endif %}
+{% if  change_type_map.fixes.len() > 0 %}
 ### Bug Fixes in {{ version }}
-
-{% for change in change_array -%}
-{% if change.change_type.to_string() == "Fix" %}
+{% for change in change_type_map.fixes -%}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
-{% match change.link %}
+{% match change.link -%}
   {% when Some with (link) %}
   - [Link]({{ link }})
   {% when None %}
-{% endmatch %}
-{% endif %}
+{%- endmatch %}
 {%- endfor %}
+{%- endif %}
 {%- endfor %}

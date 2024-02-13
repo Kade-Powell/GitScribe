@@ -1,6 +1,6 @@
 use indexmap::IndexMap;
 
-use crate::{config::Config, version::Version};
+use crate::{changelog::ChangeTypeMap, config::Config, version::Version};
 
 use chrono::{Local, NaiveDateTime};
 use regex::Regex;
@@ -159,7 +159,7 @@ fn parse_change(change: &str, config: &Config) -> Change {
 /// Gets the changes from the git log
 /// # Returns
 /// * A vector of Change structs
-pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<Change>> {
+pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, ChangeTypeMap> {
     let output = std::process::Command::new("git")
         .args(&[
             "log",
@@ -203,12 +203,15 @@ pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<C
         .collect();
 
     // loop through changes, sort by change date. we want to associate change date for the version change
-    let mut change_map: IndexMap<String, Vec<Change>> = IndexMap::new();
+    let mut change_map: IndexMap<String, ChangeTypeMap> = IndexMap::new();
     //insert version change as the key, it is sorted above by date so we want to keep the order
     for version_change in &version_changes {
         change_map.insert(
             parse_change_for_version(&version_change.message),
-            Vec::new(),
+            ChangeTypeMap {
+                features: vec![],
+                fixes: vec![],
+            },
         );
     }
 
@@ -222,7 +225,23 @@ pub fn get_changes(config: &Config, version: &Version) -> IndexMap<String, Vec<C
         match release_change {
             Some(_) => {
                 if change_map.contains_key(&version) {
-                    change_map.get_mut(&version).unwrap().push(change.clone());
+                    match change.change_type {
+                        ChangeType::Feature => {
+                            change_map
+                                .get_mut(&version)
+                                .unwrap()
+                                .features
+                                .push(change.clone());
+                        }
+                        ChangeType::Fix => {
+                            change_map
+                                .get_mut(&version)
+                                .unwrap()
+                                .fixes
+                                .push(change.clone());
+                        }
+                        _ => {}
+                    }
                 } else {
                     println!("Change Map Did not include the version.");
                     std::process::exit(1);
