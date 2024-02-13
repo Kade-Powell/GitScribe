@@ -1,7 +1,18 @@
 # Changelog - 2024-02-13
-release: 0.2.3
 
+release: 0.2.4
+## 0.2.4
+
+### Added
+
+- feat: ✨ formatting md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:18:07
+
+    - [Link](https://github.com/Kade-Powell/GitScribe/commit/b3ce6297c21319a871e90a72b4827b3a3add69c7)
+  
+
+### Bug Fixes
 ## 0.2.3
+
 ### Added
 
 - feat: ✨ spruce up md heading section By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:15:31
@@ -11,6 +22,7 @@ release: 0.2.3
 
 ### Bug Fixes
 ## 0.2.2
+
 ### Added
 
 - feat: ✨ add new data to md template rendering By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:12:38
@@ -20,6 +32,7 @@ release: 0.2.3
 
 ### Bug Fixes
 ## 0.2.1
+
 ### Added
 
 - feat: 🔥 Initialize new githistory at 0.2.0 By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 13:14:46
