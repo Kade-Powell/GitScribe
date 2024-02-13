@@ -1,11 +1,11 @@
 # Changelog - {{ date }}
 
 release: {{ version }}
-{% for (version, change_array) in changes -%}
 
+{% for (version, change_array) in changes -%}
 ## {{ version }}
 
-### Added
+### Added in {{ version }}
 {% for change in change_array -%}
 {% if change.change_type.to_string() == "Feature" %}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
@@ -16,7 +16,8 @@ release: {{ version }}
 {% endmatch %}
 {% endif %}
 {%- endfor %}
-### Bug Fixes
+### Bug Fixes in {{ version }}
+
 {% for change in change_array -%}
 {% if change.change_type.to_string() == "Fix" %}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
