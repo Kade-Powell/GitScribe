@@ -1,6 +1,17 @@
 # Changelog - 2024-02-13
 
-release: 0.2.6
+release: 0.2.7
+
+## 0.2.7
+
+### Added in 0.2.7
+
+- feat: ✨ fix md template. By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:23:10
+
+  - [Link](https://github.com/Kade-Powell/GitScribe/commit/2a0b71b4b45bb7b668a07dc1eb5d14ea554ab019)
+  
+
+### Bug Fixes in 0.2.7
 
 ## 0.2.6
 
@@ -10,6 +21,7 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/6e2ed2755d04e080c0d06fc802b56fb59c1ca29f)
   
+
 ### Bug Fixes in 0.2.6
 
 ## 0.2.5
@@ -20,6 +32,7 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/4a2f09f341d56947b391b643811b00469c00ee91)
   
+
 ### Bug Fixes in 0.2.5
 
 ## 0.2.4
@@ -30,6 +43,7 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/b3ce6297c21319a871e90a72b4827b3a3add69c7)
   
+
 ### Bug Fixes in 0.2.4
 
 ## 0.2.3
@@ -40,6 +54,7 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/d017270f1745c5c72f6563caf361b892f6a4a332)
   
+
 ### Bug Fixes in 0.2.3
 
 ## 0.2.2
@@ -50,6 +65,7 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/454cf4b3f9fa09f1e6c10ba23221eb90182af9d0)
   
+
 ### Bug Fixes in 0.2.2
 
 ## 0.2.1
@@ -60,7 +76,9 @@ release: 0.2.6
 
   - [Link](https://github.com/Kade-Powell/GitScribe/commit/5b0b5bdc0f5a722c5347557712ab3e2e9558c74f)
   
+
 ### Bug Fixes in 0.2.1
+
 
 - fix: revert config version to 0.2.0 By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 13:17:07
 
