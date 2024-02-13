@@ -1,0 +1,15 @@
+<script setup lang="ts">
+
+</script>
+<template>
+  <div>
+    <h1>Changelog - {{ version }} {{ date }}</h1>
+    <p>Here is the changelog for the Quasar Framework.</p>
+  </div>
+  <div>
+    <h2>Added</h2>
+    {% for change in changes %}
+    <p>{{ change.message }}</p>
+    {% endfor %}
+  </div>
+</template>

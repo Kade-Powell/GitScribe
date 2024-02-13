@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "askama",
+        "chrono",
+        "endfor",
+        "gitmoji",
+        "gitscribe",
+        "pyproject",
+        "rustup"
+    ],
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml",
+    ],
+
+
+}

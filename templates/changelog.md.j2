@@ -1,0 +1,18 @@
+# {{ version }} - {{ date }}
+
+
+{% for (version, change_array) in changes -%}
+## {{ version }}
+### Added
+{% for change in change_array -%}
+{% if change.change_type.to_string() == "Feature" %}
+- {{ change.message }}
+{% endif %}
+{% endfor %}
+### Bug Fixes
+{% for change in change_array -%}
+{% if change.change_type.to_string() == "Fix" %}
+- {{ change.message }}
+{% endif %}
+{%- endfor %}
+{% endfor %}

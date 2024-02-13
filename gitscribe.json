@@ -1,0 +1,17 @@
+{
+  "version": "0.2.11",
+  "changelog_output_selections": [
+    {
+      "template_option": "Markdown",
+      "output_filepath": "CHANGELOG.md"
+    }
+  ],
+  "project_repo": "https://github.com/Kade-Powell/GitScribe/",
+  "version_sync_files": [
+    {
+      "file_format": "CargoToml",
+      "file_path": "Cargo.toml",
+      "version_key": "version"
+    }
+  ]
+}
