@@ -1,7 +1,14 @@
 # Changelog - 2024-02-21
 
-release: 0.2.9
+release: 0.2.10
 
+## 0.2.10
+
+
+### Bug Fixes in 0.2.10
+- fix: indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:33:22
+
+  - [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)
 ## 0.2.9
 
 
