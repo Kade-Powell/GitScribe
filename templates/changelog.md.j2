@@ -11,7 +11,7 @@ release: {{ version }}
 {% match change.link -%}
 {% when Some with (link) -%}
   - [Link]({{ link }})
-  {%- when None %}
+{%- when None %}
 {%- endmatch %}
 {%- endfor %}
 {%- endif %}
