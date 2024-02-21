@@ -1,6 +1,8 @@
 # Changelog - 2024-02-21
 
-release: 0.2.10
+release: 0.2.11
+
+## 0.2.11
 
 ## 0.2.10
 
@@ -8,15 +10,13 @@ release: 0.2.10
 ### Bug Fixes in 0.2.10
 - fix: indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:33:22
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)
-## 0.2.9
+  - [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)## 0.2.9
 
 
 ### Bug Fixes in 0.2.9
 - fix: 🐛 fix indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:32:05
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/1903eb73095d39c70b3ab2bb3e51bdae5f3d9fcf)
-## 0.2.8
+  - [Link](https://github.com/Kade-Powell/GitScribe/commit/1903eb73095d39c70b3ab2bb3e51bdae5f3d9fcf)## 0.2.8
 
 ### Added in 0.2.8
 - feat: ✨ Refactor get_changes function to use ChangeTypeMap By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 15:22:01
