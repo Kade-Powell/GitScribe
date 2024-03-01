@@ -38,7 +38,7 @@
                 }
             },
             "args": ["minor"],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}/upp"
         },
         {
             "type": "lldb",
