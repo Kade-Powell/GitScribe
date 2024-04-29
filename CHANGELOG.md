@@ -1,8 +1,13 @@
 # Changelog - 2024-04-29
 
-release: 0.2.14
+release: 0.3.0
 
-## 0.2.14
+## 0.3.0
+
+### Bug Fixes in 0.3.0
+- fix: 🐛 fix md template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:48:51
+
+  - [Link](https://github.com/Kade-Powell/GitScribe/commit/a0bca81272ef5e51ae32c8f4849d765930aca2b0)## 0.2.14
 
 ### Bug Fixes in 0.2.14
 - fix: 🐛 fix template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:47:32
