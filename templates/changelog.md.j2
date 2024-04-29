@@ -2,31 +2,31 @@
 
 release: {{ version }}
 
-{% for (version, change_type_map) in changes -%}
+{% for (version, change_type_map) in changes %}
 ## {{ version }}
-{% if  change_type_map.features.len() > 0 -%}
+{% if  change_type_map.features.len() > 0 %}
 ### Added in {{ version }}
-{% for change in change_type_map.features -%}
+{% for change in change_type_map.features %}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
-{% match change.link -%}
-{% when Some with (link) -%}
+{% match change.link %}
+{% when Some with (link) %}
   - [Link]({{ link }})
 
-{%- when None %}
-{%- endmatch %}
-{%- endfor %}
-{%- endif %}
-{% if  change_type_map.fixes.len() > 0 -%}
+{% when None %}
+{% endmatch %}
+{% endfor %}
+{% endif %}
+{% if  change_type_map.fixes.len() > 0 %}
 
 ### Bug Fixes in {{ version }}
-{% for change in change_type_map.fixes -%}
+{% for change in change_type_map.fixes %}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
-{% match change.link -%}
-{% when Some with (link) -%}
+{% match change.link %}
+{% when Some with (link) %}
   - [Link]({{ link }})
 
-{%- when None %}
-{%- endmatch %}
-{%- endfor %}
-{%- endif %}
-{%- endfor %}
+{% when None %}
+{% endmatch %}
+{% endfor %}
+{% endif %}
+{% endfor %}
