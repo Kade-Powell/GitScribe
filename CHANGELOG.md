@@ -1,23 +1,24 @@
 # Changelog - 2024-04-29
 
-release: 0.3.0
+release: 0.3.1
 
+## 0.3.1
+### Added in 0.3.1
+- feat: ✨ template By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:50:37
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/2dccc7333d3d3a8b0d1ae3906fcf5ec5b0cea93e)
 ## 0.3.0
 
 ### Bug Fixes in 0.3.0
 - fix: 🐛 fix md template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:48:51
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/a0bca81272ef5e51ae32c8f4849d765930aca2b0)## 0.2.14
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/a0bca81272ef5e51ae32c8f4849d765930aca2b0)## 0.2.14
 
 ### Bug Fixes in 0.2.14
 - fix: 🐛 fix template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:47:32
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/8043f516af6bd59b56578787e216ee368a999ebb)## 0.2.13
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/8043f516af6bd59b56578787e216ee368a999ebb)## 0.2.13
 
 ### Bug Fixes in 0.2.13
 - fix: 🐛 fix changelog generation error when pull requests are present in history By: Powell, Kade (CCI-Southeast) Date: 2024-03-01 16:37:08
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/f91c14a44c7e6574a51f7b1bc99cb56c7a6ec41d)## 0.2.12
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/f91c14a44c7e6574a51f7b1bc99cb56c7a6ec41d)## 0.2.12
 
 ## 0.2.11
 
@@ -25,13 +26,11 @@ release: 0.3.0
 
 ### Bug Fixes in 0.2.10
 - fix: indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:33:22
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)## 0.2.9
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)## 0.2.9
 
 ### Bug Fixes in 0.2.9
 - fix: 🐛 fix indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:32:05
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/1903eb73095d39c70b3ab2bb3e51bdae5f3d9fcf)## 0.2.8
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/1903eb73095d39c70b3ab2bb3e51bdae5f3d9fcf)## 0.2.8
 ### Added in 0.2.8
 - feat: ✨ Refactor get_changes function to use ChangeTypeMap By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 15:22:01
 - [Link](https://github.com/Kade-Powell/GitScribe/commit/5ede20ad5dd2b30869ee66e9a5caeb1f48a62e96)
@@ -65,5 +64,4 @@ release: 0.3.0
 - [Link](https://github.com/Kade-Powell/GitScribe/commit/5b0b5bdc0f5a722c5347557712ab3e2e9558c74f)
 ### Bug Fixes in 0.2.1
 - fix: revert config version to 0.2.0 By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 13:17:07
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/856659c5c3a182b01b0668a9426455823483c8e6)
+- [Link](https://github.com/Kade-Powell/GitScribe/commit/856659c5c3a182b01b0668a9426455823483c8e6)
