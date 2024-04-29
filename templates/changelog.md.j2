@@ -22,7 +22,7 @@ release: {{ version }}
 {% for change in change_type_map.fixes -%}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
 {% match change.link -%}
-{% when Some with (link) %}
+{% when Some with (link) -%}
   - [Link]({{ link }})
 
 {%- when None %}
