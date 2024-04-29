@@ -17,12 +17,14 @@ release: {{ version }}
 {%- endfor %}
 {%- endif %}
 {% if  change_type_map.fixes.len() > 0 -%}
+
 ### Bug Fixes in {{ version }}
 {% for change in change_type_map.fixes -%}
 - {{ change.message }} By: {{ change.author}} Date: {{ change.date }}
 {% match change.link -%}
 {% when Some with (link) %}
   - [Link]({{ link }})
+
 {%- when None %}
 {%- endmatch %}
 {%- endfor %}
