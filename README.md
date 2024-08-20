@@ -1,7 +1,6 @@
 # GitScribe
 
 - A tool to help you maintain a changelog file in your project with semantic versioning.
-currently it is under development and not ready for use.
 
 ## Installation
 
