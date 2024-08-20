@@ -117,27 +117,30 @@ pub fn handle_init() {
     );
 
     loop {
-        let output_filepath = Text::new("Enter the output filepath")
-            .with_help_message("The output filepath relative to the root of the project")
-            .with_validator(ValueRequiredValidator::new(
-                "The output filepath cannot be empty",
-            ))
-            .with_default("./CHANGELOG.md")
-            .prompt()
-            .unwrap();
         let template_option =
             inquire::Select::new("Select A Changelog Template", TemplateOption::values())
                 .prompt()
                 .unwrap();
 
+        let default_filepath = match template_option {
+            TemplateOption::Markdown => "./CHANGELOG.md",
+            TemplateOption::VueQuasar => "./src/components/GitscribeChangelog.vue",
+        };
+        let output_filepath = Text::new("Enter the output filepath")
+            .with_help_message("The output filepath relative to the root of the project")
+            .with_validator(ValueRequiredValidator::new(
+                "The output filepath cannot be empty",
+            ))
+            .with_default(default_filepath)
+            .prompt()
+            .unwrap();
+
         changelog_output_selections.push(config::ChangelogOutputOption {
             template_option,
             output_filepath,
         });
-        let add_another = inquire::Confirm::new("Add another file output selection?")
-            .with_help_message(
-                "If you want to add another output selection, select yes. Otherwise, select no.",
-            )
+        let add_another = inquire::Confirm::new("Add another changelog file output?")
+            .with_help_message("'y' for yes or 'n' for no")
             .prompt()
             .unwrap();
         if !add_another {
@@ -145,10 +148,8 @@ pub fn handle_init() {
             break;
         }
     }
-    let add_version_sync_files = inquire::Confirm::new("Add version sync files?")
-        .with_help_message(
-            "If you want to add version sync files, select yes. Otherwise, select no.",
-        )
+    let add_version_sync_files = inquire::Confirm::new("Add a file to sync the version with?")
+        .with_help_message("'y' for yes or 'n' for no")
         .prompt()
         .unwrap();
     if add_version_sync_files {

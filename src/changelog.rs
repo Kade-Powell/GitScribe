@@ -16,6 +16,14 @@ struct MarkdownChangelog {
     changes: IndexMap<String, ChangeTypeMap>,
 }
 
+#[derive(Template)]
+#[template(path = "quasarChangelog.vue.j2")]
+struct VueQuasarChangelog {
+    version: String,
+    date: String,
+    changes: IndexMap<String, ChangeTypeMap>,
+}
+
 #[derive(Clone, Debug)]
 pub struct ChangeTypeMap {
     pub features: Vec<Change>,
@@ -28,16 +36,19 @@ pub struct ChangeTypeMap {
 #[derive(Debug, Serialize, Deserialize)]
 pub enum TemplateOption {
     Markdown,
+    VueQuasar,
 }
 impl TemplateOption {
     pub fn values() -> Vec<Self> {
-        vec![Self::Markdown] // add all your variants here
+        vec![Self::Markdown, Self::VueQuasar] // add all your variants here
     }
 }
+
 impl std::fmt::Display for TemplateOption {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             TemplateOption::Markdown => write!(f, "Markdown"),
+            TemplateOption::VueQuasar => write!(f, "VueQuasar"),
         }
     }
 }
@@ -61,6 +72,19 @@ pub fn generate_and_insert_changelogs(
         .for_each(|output_selection| match output_selection.template_option {
             TemplateOption::Markdown => {
                 let changelog = MarkdownChangelog {
+                    version: version.to_string(),
+                    date: Local::now().format("%Y-%m-%d").to_string(),
+                    changes: changes.clone(),
+                };
+                let rendered_log = changelog.render().expect("Failed to render changelog");
+                insert_changelog(&output_selection.output_filepath, &rendered_log);
+                results.push(format!(
+                    " - Generated {} changelog at {}",
+                    output_selection.template_option, output_selection.output_filepath
+                ));
+            }
+            TemplateOption::VueQuasar => {
+                let changelog = VueQuasarChangelog {
                     version: version.to_string(),
                     date: Local::now().format("%Y-%m-%d").to_string(),
                     changes: changes.clone(),
