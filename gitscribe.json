@@ -1,16 +1,18 @@
 {
   "version": "0.4.0",
+  "commands_that_release": [],
+  "branch_for_release": false,
   "changelog_output_selections": [
     {
       "template_option": "Markdown",
-      "output_filepath": "CHANGELOG.md"
+      "output_filepath": "./CHANGELOG.md"
     }
   ],
-  "project_repo": "https://github.com/Kade-Powell/GitScribe/",
+  "project_repo": null,
   "version_sync_files": [
     {
       "file_format": "CargoToml",
-      "file_path": "Cargo.toml",
+      "file_path": "./Cargo.toml",
       "version_key": "version"
     }
   ]
