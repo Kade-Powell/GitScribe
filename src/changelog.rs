@@ -33,7 +33,7 @@ pub struct ChangeTypeMap {
 /// The template options
 /// # Variants
 /// * Markdown - The markdown template
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub enum TemplateOption {
     Markdown,
     VueQuasar,

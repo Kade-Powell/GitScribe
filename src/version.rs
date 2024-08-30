@@ -1,6 +1,7 @@
 use crate::config::Config;
 use crate::EXPECTED_CONFIG_FILE_NAME;
 use colored::Colorize;
+use core::fmt;
 use std::fs::OpenOptions;
 use std::io::Write;
 
@@ -9,6 +10,15 @@ pub enum VersionDesignation {
     Major,
     Minor,
     Patch,
+}
+impl std::fmt::Display for VersionDesignation {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            VersionDesignation::Major => write!(f, "major"),
+            VersionDesignation::Minor => write!(f, "minor"),
+            VersionDesignation::Patch => write!(f, "patch"),
+        }
+    }
 }
 /// Struct representing the version
 #[derive(Clone)]
@@ -42,7 +52,7 @@ impl std::fmt::Display for Version {
 /// * `version_designation` - The version designation
 /// # Returns
 /// * The new version
-pub fn increment_version(config: &Config, version_designation: VersionDesignation) -> Version {
+pub fn increment_version(config: &Config, version_designation: &VersionDesignation) -> Version {
     let mut version = Version::new(config.version.clone());
     match version_designation {
         VersionDesignation::Major => {
@@ -116,7 +126,7 @@ mod tests {
     #[test]
     fn test_increment_version_patch() {
         let config = Config::create_default();
-        let version = increment_version(&config, VersionDesignation::Patch);
+        let version = increment_version(&config, &VersionDesignation::Patch);
         assert_eq!(version.major, 0);
         assert_eq!(version.minor, 0);
         assert_eq!(version.patch, 2);
@@ -125,7 +135,7 @@ mod tests {
     #[test]
     fn test_increment_version_minor() {
         let config = Config::create_default();
-        let version = increment_version(&config, VersionDesignation::Minor);
+        let version = increment_version(&config, &VersionDesignation::Minor);
         assert_eq!(version.major, 0);
         assert_eq!(version.minor, 1);
         assert_eq!(version.patch, 0);
@@ -135,7 +145,7 @@ mod tests {
     fn test_increment_version_major() {
         let mut config = Config::create_default();
         config.version = "0.1.1".to_string();
-        let version = increment_version(&config, VersionDesignation::Major);
+        let version = increment_version(&config, &VersionDesignation::Major);
         assert_eq!(version.major, 1);
         assert_eq!(version.minor, 0);
         assert_eq!(version.patch, 0);

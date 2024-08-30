@@ -5,7 +5,11 @@ pub mod util;
 pub mod version;
 mod version_file_sync;
 
-use inquire::{validator::ValueRequiredValidator, Text};
+use inquire::{
+    list_option::ListOption,
+    validator::{Validation, ValueRequiredValidator},
+    Text,
+};
 use std::{fs::OpenOptions, io::Write};
 
 use change::commit_changes;
@@ -36,8 +40,8 @@ pub const EXPECTED_CONFIG_FILE_NAME: &str = "gitscribe.json";
 pub fn handle_version_bump(config: Config, version_designation: VersionDesignation) {
     // check if there are uncommitted changes
     check_for_uncommitted_changes();
-    let version = increment_version(&config, version_designation);
-    let config = write_new_version_to_file(config, version.clone());
+    let version = increment_version(&config, &version_designation);
+    let config = write_new_version_to_file(config.clone(), version.clone());
 
     match config.version_sync_files.as_ref() {
         Some(sync_files) => {
@@ -71,6 +75,14 @@ pub fn handle_version_bump(config: Config, version_designation: VersionDesignati
         "✅New version has been committed, and changelog has been updated.".green(),
         "🚀Don't forget to push your changes!".cyan()
     );
+
+    if config.branch_for_release
+        && config
+            .commands_that_release
+            .contains(&version_designation.to_string())
+    {
+        branch_for_release(&config);
+    }
 }
 
 /// Handles the initialization of the config file
@@ -109,6 +121,32 @@ pub fn handle_init() {
     if project_repo.len() > 0 {
         config.project_repo = Some(project_repo);
     }
+    config.branch_for_release = inquire::Confirm::new("Create a branch for releases?")
+        .with_help_message("'y' for yes or 'n' for no")
+        .prompt()
+        .unwrap();
+    if config.branch_for_release {
+        config.commands_that_release = inquire::MultiSelect::new(
+            "Select Commands That Create A Release",
+            vec![
+                "major".to_string(),
+                "minor".to_string(),
+                "patch".to_string(),
+            ],
+        )
+        .with_default(&[0, 1]) //default to major and minor
+        .with_validator(|input: &[ListOption<&String>]| {
+            // ensure major is selected
+            if input.iter().any(|option| option.value == "major") {
+                Ok(Validation::Valid)
+            } else {
+                Ok(Validation::Invalid("Major must be selected".into()))
+            }
+        })
+        .prompt()
+        .unwrap();
+    }
+
     // handle the changelog output selections
     let mut changelog_output_selections = vec![];
     println!(
@@ -203,4 +241,49 @@ pub fn handle_init() {
         .unwrap();
     file.write_all(config_file.as_bytes()).unwrap();
     println!("{}", "🚀Config file has been initialized.".green());
+}
+
+fn branch_for_release(config: &Config) {
+    let mut branch_version = config.version.clone();
+    // replace the last part of the version with an X
+    if !config.commands_that_release.contains(&"patch".to_string()) {
+        branch_version = branch_version
+            .split(".")
+            .take(2)
+            .collect::<Vec<&str>>()
+            .join(".")
+            + ".X";
+    }
+    // replace the second to last part of the version with an X
+    if !config.commands_that_release.contains(&"minor".to_string()) {
+        branch_version = branch_version
+            .split(".")
+            .enumerate()
+            .map(|(i, part)| if i == 1 { "X" } else { part })
+            .collect::<Vec<&str>>()
+            .join(".");
+    }
+
+    let output = std::process::Command::new("git")
+        .args(&[
+            "checkout",
+            "-b",
+            format!("release/{}", branch_version).as_str(),
+        ])
+        .output()
+        .expect("Failed to execute command");
+    if output.status.success() {
+        println!("{}", "✅Branch has been created for the release.".green());
+        println!("{}", "  ℹ️ To publish your release run:".green());
+        println!(
+            "{}",
+            format!("      git push origin release/{branch_version}").cyan()
+        );
+    } else {
+        println!(
+            "{}",
+            format!("🤬Failed to create a branch for the release/{branch_version}.").red()
+        );
+        std::process::exit(1);
+    }
 }

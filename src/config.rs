@@ -13,15 +13,17 @@ use serde::{Deserialize, Serialize};
 /// * `project_repo` - the OPTIONAL project repository - used to make links to commits
 /// * `version_sync_files` - the OPTIONAL list of files to sync the version number to. eg. Cargo.toml, package.json, pyproject.toml
 ///
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Config {
     pub version: String,
+    pub commands_that_release: Vec<String>,
+    pub branch_for_release: bool,
     pub changelog_output_selections: Vec<ChangelogOutputOption>,
     pub project_repo: Option<String>,
     pub version_sync_files: Option<Vec<VersionSyncFile>>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ChangelogOutputOption {
     pub template_option: TemplateOption,
     pub output_filepath: String,
@@ -32,6 +34,8 @@ impl Config {
     pub fn create_default() -> Self {
         Config {
             version: "0.0.1".to_string(),
+            branch_for_release: false,
+            commands_that_release: [].to_vec(),
             project_repo: None,
             changelog_output_selections: vec![ChangelogOutputOption {
                 template_option: TemplateOption::Markdown,

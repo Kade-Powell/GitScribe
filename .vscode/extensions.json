@@ -4,7 +4,6 @@
         "samuelcolvin.jinjahtml",
         "streetsidesoftware.code-spell-checker",
         "vivaxy.vscode-conventional-commits",
-        "serayuzgur.crates",
         "usernamehw.errorlens",
         "tamasfe.even-better-toml",
         "eamodio.gitlens",
@@ -13,7 +12,8 @@
         "rust-lang.rust-analyzer",
         "wayou.vscode-todo-highlight",
         "gruntfuggly.todo-tree",
-        "vadimcn.vscode-lldb"
+        "vadimcn.vscode-lldb",
+        "fill-labs.dependi"
     ]
 
 }
