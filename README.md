@@ -26,7 +26,11 @@
 ```sh
 gitscribe --help
 ```
-
+### setup your project
+```sh
+# go through the init process to create a new config file
+gitscribe init
+```
 ### make a new release
 
 ```sh
