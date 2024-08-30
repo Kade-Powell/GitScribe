@@ -1,6 +1,17 @@
-# Changelog - 2024-08-20
+# Changelog - 2024-08-30
 
-release: 0.4.0
+release: 0.5.0
+
+
+## 0.5.0
+
+### Added in 0.5.0
+
+- feat: add support for creating release branches By: Kade Date: 2024-08-30 17:23:21
+
+
+
+
 
 
 ## 0.4.0
@@ -8,8 +19,6 @@ release: 0.4.0
 ### Added in 0.4.0
 
 - feat: add support for quasar template By: Powell, Kade (CCI-Southeast) Date: 2024-08-20 16:48:52
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/9d1d63b56f1d0367c3ce97f08bcbb4211481224f)
 
 
 
@@ -26,8 +35,6 @@ release: 0.4.0
 
 - feat: ✨ template By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:50:37
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/2dccc7333d3d3a8b0d1ae3906fcf5ec5b0cea93e)
-
 
 
 
@@ -41,8 +48,6 @@ release: 0.4.0
 
 - fix: 🐛 fix md template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:48:51
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/a0bca81272ef5e51ae32c8f4849d765930aca2b0)
-
 
 
 
@@ -55,8 +60,6 @@ release: 0.4.0
 
 - fix: 🐛 fix template bug By: Powell, Kade (CCI-Southeast) Date: 2024-04-29 13:47:32
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/8043f516af6bd59b56578787e216ee368a999ebb)
-
 
 
 
@@ -68,8 +71,6 @@ release: 0.4.0
 ### Bug Fixes in 0.2.13
 
 - fix: 🐛 fix changelog generation error when pull requests are present in history By: Powell, Kade (CCI-Southeast) Date: 2024-03-01 16:37:08
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/f91c14a44c7e6574a51f7b1bc99cb56c7a6ec41d)
 
 
 
@@ -91,8 +92,6 @@ release: 0.4.0
 
 - fix: indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:33:22
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/356fb39b39fd0470a615eb1d3b4f6baeab04a825)
-
 
 
 
@@ -105,8 +104,6 @@ release: 0.4.0
 
 - fix: 🐛 fix indentation on md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-21 14:32:05
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/1903eb73095d39c70b3ab2bb3e51bdae5f3d9fcf)
-
 
 
 
@@ -116,8 +113,6 @@ release: 0.4.0
 ### Added in 0.2.8
 
 - feat: ✨ Refactor get_changes function to use ChangeTypeMap By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 15:22:01
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/5ede20ad5dd2b30869ee66e9a5caeb1f48a62e96)
 
 
 
@@ -130,8 +125,6 @@ release: 0.4.0
 
 - feat: ✨ fix md template. By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:23:10
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/2a0b71b4b45bb7b668a07dc1eb5d14ea554ab019)
-
 
 
 
@@ -142,8 +135,6 @@ release: 0.4.0
 ### Added in 0.2.6
 
 - feat: ✨ Update changelog template By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:21:25
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/6e2ed2755d04e080c0d06fc802b56fb59c1ca29f)
 
 
 
@@ -156,8 +147,6 @@ release: 0.4.0
 
 - feat: ✨ formatting md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:19:37
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/4a2f09f341d56947b391b643811b00469c00ee91)
-
 
 
 
@@ -168,8 +157,6 @@ release: 0.4.0
 ### Added in 0.2.4
 
 - feat: ✨ formatting md template By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:18:07
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/b3ce6297c21319a871e90a72b4827b3a3add69c7)
 
 
 
@@ -182,8 +169,6 @@ release: 0.4.0
 
 - feat: ✨ spruce up md heading section By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:15:31
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/d017270f1745c5c72f6563caf361b892f6a4a332)
-
 
 
 
@@ -194,8 +179,6 @@ release: 0.4.0
 ### Added in 0.2.2
 
 - feat: ✨ add new data to md template rendering By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 14:12:38
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/454cf4b3f9fa09f1e6c10ba23221eb90182af9d0)
 
 
 
@@ -208,8 +191,6 @@ release: 0.4.0
 
 - feat: 🔥 Initialize new githistory at 0.2.0 By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 13:14:46
 
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/5b0b5bdc0f5a722c5347557712ab3e2e9558c74f)
-
 
 
 
@@ -218,8 +199,6 @@ release: 0.4.0
 ### Bug Fixes in 0.2.1
 
 - fix: revert config version to 0.2.0 By: Powell, Kade (CCI-Southeast) Date: 2024-02-13 13:17:07
-
-  - [Link](https://github.com/Kade-Powell/GitScribe/commit/856659c5c3a182b01b0668a9426455823483c8e6)
 
 
 
