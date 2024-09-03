@@ -35,7 +35,7 @@ onMounted(() => {
             <ul>
                 {% for change in change_type_map.features %}
                 <li>
-                    {{ change.message }}c
+                    {{ change.message }}
                 </li>
                 {% endfor %}
             </ul>
@@ -45,7 +45,7 @@ onMounted(() => {
             <ul>
                 {% for change in change_type_map.fixes %}
                 <li>
-                    {{ change.message }} By: {{ change.author }} Date: {{ change.date }}
+                    {{ change.message }}
                 </li>
                 {% endfor %}
             </ul>
