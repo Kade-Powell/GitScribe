@@ -1,6 +1,18 @@
-# Changelog - 2024-08-30
+# Changelog - 2024-09-03
 
-release: 0.5.0
+release: 0.5.1
+
+
+## 0.5.1
+
+
+
+### Bug Fixes in 0.5.1
+
+- fix: fix quasar changelog template By: Kade Date: 2024-09-03 09:11:48
+
+
+
 
 
 ## 0.5.0
