@@ -1,6 +1,18 @@
-# Changelog - 2024-09-03
+# Changelog - 2024-09-20
 
-release: 0.5.1
+release: 0.5.2
+
+
+## 0.5.2
+
+
+
+### Bug Fixes in 0.5.2
+
+- fix: refactor quasar template to get rid of eslint/vue warnings By: Kade Date: 2024-09-20 09:18:18
+
+
+
 
 
 ## 0.5.1
