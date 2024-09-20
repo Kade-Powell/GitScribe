@@ -1,37 +1,37 @@
 <script setup>
 // recommended to render the changelog from the main layout
-import { onMounted, ref } from "vue";
-const version = "{{ version }}";
+import { onMounted, ref } from 'vue';
+const version = '{{ version }}';
 let showChangelog = ref(false);
 let showAll = ref(false);
 
 onMounted(() => {
-  let lastSeenVersion = localStorage.getItem("lastSeenVersion");
+  let lastSeenVersion = localStorage.getItem('lastSeenVersion');
   if (lastSeenVersion !== version) {
     showChangelog.value = true;
-    localStorage.setItem("lastSeenVersion", version);
+    localStorage.setItem('lastSeenVersion', version);
   }
 });
 </script>
 
 <template>
-    <q-dialog v-model="showChangelog">
+    <q-dialog v-model='showChangelog'>
         <q-card>
-          <q-card-section class="bg-dark text-white row items-center">
-              <div class="text-h5">Release: {{ version }} - {{ date }}</div>
+          <q-card-section class='bg-dark text-white row items-center'>
+              <div class='text-h5'>Release: {{ version }} - {{ date }}</div>
               <q-space />
-              <q-btn icon="close" flat round dense v-close-popup />
+              <q-btn icon='close' flat round v-close-popup dense  />
             </q-card-section>
 
             {% for (change_version, change_type_map) in changes %}
             {% if version == change_version.clone() %}
-            <q-card-section class="q-pb-none">
+            <q-card-section class='q-pb-none'>
             {% else %}
-            <q-card-section v-if="showAll" class="q-pb-none">
+            <q-card-section v-if='showAll' class='q-pb-none'>
             {% endif %}
-            <div class="text-h5">{{ change_version }}</div>
+            <div class='text-h5'>{{ change_version }}</div>
             {% if change_type_map.features.len() > 0 %}
-            <div class="text-h6">Added in {{ change_version }}</div>
+            <div class='text-h6'>Added in {{ change_version }}</div>
             <ul>
                 {% for change in change_type_map.features %}
                 <li>
@@ -41,7 +41,7 @@ onMounted(() => {
             </ul>
             {% endif %}
             {% if change_type_map.fixes.len() > 0 %}
-            <div class="text-h6">Bug Fixes in {{ change_version }}</div>
+            <div class='text-h6'>Bug Fixes in {{ change_version }}</div>
             <ul>
                 {% for change in change_type_map.fixes %}
                 <li>
@@ -52,10 +52,10 @@ onMounted(() => {
             {% endif %}
             </q-card-section>
         {% endfor %}
-        <q-card-section class="q-pa-xs row">
+        <q-card-section class='q-pa-xs row'>
           <q-btn
-            class="col"
-            color="primary"
+            class='col'
+            color='primary'
             outline
             :onclick="() => (showAll = !showAll)"
             :label="showAll ? 'Hide' : 'Show All'"
