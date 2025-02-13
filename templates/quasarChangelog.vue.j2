@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang="ts">
 // recommended to render the changelog from the main layout
 import { onMounted, ref } from 'vue';
 const version = '{{ version }}';
-let showChangelog = ref(false);
-let showAll = ref(false);
+const showChangelog = ref(false);
+const showAll = ref(false);
 
 onMounted(() => {
-  let lastSeenVersion = localStorage.getItem('lastSeenVersion');
+  const lastSeenVersion = localStorage.getItem('lastSeenVersion');
   if (lastSeenVersion !== version) {
     showChangelog.value = true;
     localStorage.setItem('lastSeenVersion', version);
