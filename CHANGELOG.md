@@ -1,6 +1,18 @@
-# Changelog - 2024-09-20
+# Changelog - 2025-02-13
 
-release: 0.5.2
+release: 0.5.3
+
+
+## 0.5.3
+
+
+
+### Bug Fixes in 0.5.3
+
+- fix: update quasar template for new lint rules By: Kade-Powell Date: 2025-02-13 17:27:14
+
+
+
 
 
 ## 0.5.2
