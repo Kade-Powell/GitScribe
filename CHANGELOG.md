@@ -1,6 +1,17 @@
-# Changelog - 2025-02-13
+# Changelog - 2025-04-09
 
-release: 0.5.3
+release: 0.6.0
+
+
+## 0.6.0
+
+### Added in 0.6.0
+
+- feat(project): update commit parser to allow scopes in commit messages By: Powell, Kade (CCI-Southeast) Date: 2025-04-09 11:35:42
+
+
+
+
 
 
 ## 0.5.3
