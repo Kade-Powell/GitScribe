@@ -128,12 +128,11 @@ fn parse_change(change: &str, config: &Config) -> Change {
 
     //parse git log, if the change was released prior to the current version, we will add the previous version to the change
     //TODO: need to parse in a strict way
-    let change_type = if message.contains("Pull request #"){
+    let change_type = if message.contains("Pull request #") {
         ChangeType::Unknown
-    }
-    else if message.contains("feat:") {
+    } else if message.starts_with("feat") {
         ChangeType::Feature
-    } else if message.contains("fix:") {
+    } else if message.starts_with("fix") {
         ChangeType::Fix
     } else if message.contains(VERSION_COMMIT_MESSAGE) {
         ChangeType::Version
